@@ -1,0 +1,11 @@
+node_modules/
+dist/
+.DS_Store
+*.local
+coverage/
+references/
+public/references/
+analysis/
+*.md
+.codex/
+.agents/

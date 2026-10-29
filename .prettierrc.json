@@ -1,0 +1,18 @@
+{
+    "printWidth": 100,
+    "tabWidth": 4,
+    "useTabs": false,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "all",
+    "vueIndentScriptAndStyle": true,
+    "htmlWhitespaceSensitivity": "ignore",
+    "overrides": [
+        {
+            "files": "*.svg",
+            "options": {
+                "parser": "html"
+            }
+        }
+    ]
+}
