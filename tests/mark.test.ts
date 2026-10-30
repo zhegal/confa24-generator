@@ -30,17 +30,17 @@ function renderMark(variant: Project['broadcast']['markVariant'], background: nu
 
 describe('broadcast emblem variants', () => {
     it('chooses white-on-black on a dark background and black-on-white on a light one', () => {
-        expect(renderMark('auto', [12, 18, 30, 255]).drawnFilter).toBe('none');
+        expect(renderMark('auto', [12, 18, 30, 255]).drawnFilter).toBe('invert(1)');
         const light = renderMark('auto', [230, 240, 235, 255]);
-        expect(light.drawnFilter).toBe('invert(1)');
+        expect(light.drawnFilter).toBe('none');
         expect(light.getImageData).toHaveBeenCalledWith(88, 45, 94, 94);
     });
 
     it('honors a manual choice without reading the background', () => {
         const light = renderMark('light', [0, 0, 0, 255]);
         const dark = renderMark('dark', [255, 255, 255, 255]);
-        expect(light.drawnFilter).toBe('invert(1)');
-        expect(dark.drawnFilter).toBe('none');
+        expect(light.drawnFilter).toBe('none');
+        expect(dark.drawnFilter).toBe('invert(1)');
         expect(light.getImageData).not.toHaveBeenCalled();
         expect(dark.getImageData).not.toHaveBeenCalled();
     });

@@ -16,8 +16,8 @@ export const identityFields: FieldDefinition[] = [
         type: 'select',
         options: options({
             auto: 'Автоматически по фону',
-            light: 'Чёрная «К» на белом',
-            dark: 'Белая «К» на чёрном',
+            light: 'Чёрная эмблема · светлый фон',
+            dark: 'Белая эмблема · тёмный фон',
         }),
     },
     { path: 'broadcast.channel', label: 'Логотип канала справа', type: 'toggle' },

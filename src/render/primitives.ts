@@ -85,9 +85,9 @@ export function drawMark(render: RenderContext, x: number, y: number, size: numb
         variant = luminance / (pixels.length / 4) >= 128 ? 'light' : 'dark';
     }
     ctx.save();
-    // The source PSD contains the white-on-black version. Invert its RGB
-    // channels while preserving the original outline and transparent edges.
-    ctx.filter = variant === 'light' ? 'invert(1)' : 'none';
+    // The K and circular band in the source are black; the white areas are
+    // their counters. Invert for the white emblem used on dark backgrounds.
+    ctx.filter = variant === 'dark' ? 'invert(1)' : 'none';
     ctx.drawImage(image, x, y, size, size);
     ctx.restore();
 }
