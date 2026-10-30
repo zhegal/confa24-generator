@@ -51,6 +51,7 @@ export async function listSaved(): Promise<SavedProject[]> {
                 projectSchema.safeParse(value.project).success
             );
         })
+        .map((value) => ({ ...value, project: projectSchema.parse(value.project) }))
         .sort((a, b) => b.updatedAt - a.updatedAt);
 }
 

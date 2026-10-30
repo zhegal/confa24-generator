@@ -1,0 +1,62 @@
+[
+    {
+        "file": "agora-sans-medium.woff2",
+        "postscript_name": "PFAgoraSansPro-Medium",
+        "source": "https://www.cufonfonts.com/font/pf-agora-sans-pro-medium",
+        "copyright": "Copyright (c) 2006 Parachute¨, www.parachute.gr.  All rights reserved."
+    },
+    {
+        "file": "agora-sans-regular.woff2",
+        "postscript_name": "PFAgoraSansPro-Regular",
+        "source": "https://www.cufonfonts.com/font/pf-agora-sans-pro-medium",
+        "copyright": "Copyright (c) 2006 Parachute¨, www.parachute.gr.  All rights reserved."
+    },
+    {
+        "file": "agora-sans-italic.woff2",
+        "postscript_name": "PFAgoraSansPro-Italic",
+        "source": "https://www.cufonfonts.com/font/pf-agora-sans-pro-medium",
+        "copyright": "Copyright (c) 2006 Parachute¨, www.parachute.gr.  All rights reserved."
+    },
+    {
+        "file": "agora-sans-lightitalic.woff2",
+        "postscript_name": "PFAgoraSansPro-LightItalic",
+        "source": "https://www.cufonfonts.com/font/pf-agora-sans-pro-medium",
+        "copyright": "Copyright (c) 2006 Parachute¨, www.parachute.gr.  All rights reserved."
+    },
+    {
+        "file": "agora-sans-bolditalic.woff2",
+        "postscript_name": "PFAgoraSansPro-BoldItalic",
+        "source": "https://www.cufonfonts.com/font/pf-agora-sans-pro-medium",
+        "copyright": "Copyright (c) 2006 Parachute¨, www.parachute.gr.  All rights reserved."
+    },
+    {
+        "file": "agora-slab-bolditalic.woff2",
+        "postscript_name": "PFAgoraSlabPro-BoldItalic",
+        "source": "https://www.onlinewebfonts.com/download/259d94eb4913ff28f444c1da85dc156b",
+        "copyright": "Copyright (c) 2006 Parachute¨, www.parachute.gr.  All rights reserved."
+    },
+    {
+        "file": "agora-slab-bold.woff2",
+        "postscript_name": "PFAgoraSlabPro-Bold",
+        "source": "https://www.onlinewebfonts.com/package/PF_Agora_Slab_Pro",
+        "copyright": "Copyright (c) 2006 Parachute¨, www.parachute.gr.  All rights reserved."
+    },
+    {
+        "file": "agora-slab-regular.woff2",
+        "postscript_name": "PFAgoraSlabPro-Regular",
+        "source": "https://www.onlinewebfonts.com/package/PF_Agora_Slab_Pro",
+        "copyright": "Copyright (c) 2006 Parachute¨, www.parachute.gr.  All rights reserved."
+    },
+    {
+        "file": "agora-sans-bold.woff2",
+        "postscript_name": "PFAgoraSansPro-Bold",
+        "source": "https://www.onlinewebfonts.com/download/66a2887d1603c1dba3f501c33a5b42e8",
+        "copyright": "Copyright (c) 2006 Parachute¨, www.parachute.gr.  All rights reserved."
+    },
+    {
+        "file": "agora-sans-mediumitalic.woff2",
+        "postscript_name": "PFAgoraSansPro-MediumItalic",
+        "source": "https://font.gooova.com/fonts/15619/pf-agora-pro-font.html",
+        "copyright": "Copyright (c) 2006 Parachute¨, www.parachute.gr.  All rights reserved."
+    }
+]

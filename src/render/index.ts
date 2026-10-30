@@ -9,6 +9,7 @@ import { drawSpecial } from './special';
 import { drawTicker } from './ticker';
 import { drawSafeGuides, lowerPanelOffset } from './safe-area';
 import type { RenderContext } from './types';
+import { PSD_WIDTH, PSD_HEIGHT } from './psd';
 
 export const FRAME_WIDTH = 1280;
 export const FRAME_HEIGHT = 720;
@@ -25,7 +26,7 @@ export async function renderFrame(
     if (!ctx) {
         throw new Error('Браузер не поддерживает Canvas.');
     }
-    ctx.scale(1.25, 1.25);
+    ctx.scale(FRAME_WIDTH / PSD_WIDTH, FRAME_HEIGHT / PSD_HEIGHT);
     const render: RenderContext = { ctx, project, images };
     drawBackground(render);
     const drawers: Partial<Record<Project['template'], (value: RenderContext) => void>> = {

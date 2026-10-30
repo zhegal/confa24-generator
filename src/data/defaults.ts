@@ -37,7 +37,8 @@ export function createProject(template: TemplateId = 'program'): Project {
                 'А вечер сегодня ещё впереди.',
         },
         appearance: {
-            broadcastSafe: true,
+            broadcastSafe: false,
+            originalBackground: true,
             accent: '#2b8585',
             background: '#2f2f2f',
             texture: true,
@@ -154,6 +155,9 @@ function applyTemplateDefaults(project: Project): void {
         broadcast.category = false;
         broadcast.headlineTone = 'urgent';
         broadcast.headlineText = 'СРОЧНО: ничего срочного';
+    }
+    if (template === 'ident') {
+        project.text.overflow = 'wrap';
     }
     if (template === 'quote') {
         images[0]!.src = '';

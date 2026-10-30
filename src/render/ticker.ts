@@ -1,133 +1,113 @@
-import { bodyFont, displayFont, drawText } from './text';
+import { bodyFont, sourceFont, drawText } from './text';
 import { rect } from './primitives';
+import { drawPsdAsset, drawPsdText } from './psd';
 import type { RenderContext } from './types';
 
 export function drawTicker(render: RenderContext): void {
     const { ctx, project } = render;
     const { ticker } = project;
-    if (!ticker.enabled || ticker.mode === 'none') {
-        return;
-    }
-    rect(ctx, '#a6a6a650', 62, 491, 900, 85);
+    if (!ticker.enabled || ticker.mode === 'none') return;
+    drawPsdAsset(render, 'ticker-base');
     if (ticker.mode === 'social' || ticker.mode === 'sms') {
         const social = ticker.mode === 'social';
-        rect(ctx, social ? '#21aeca' : '#aaaaaa', 62, 493, 900, 58);
+        drawPsdAsset(render, ticker.mode);
         drawText(
             ctx,
             social ? ticker.social : `${ticker.smsText} ${ticker.smsNumber}`,
+            { x: 77, y: 501, width: 870, height: 45 },
             {
-                x: 80,
-                y: 503,
-                width: 865,
-                height: 47,
-            },
-            {
-                font: (size) =>
-                    social ? displayFont(project, size) : bodyFont(project, size, true),
-                size: social ? 48 : 30,
+                font: (size) => sourceFont(project, size, 'sans', social ? 700 : 500, social),
+                size: social ? 40 : 28,
+                baseline: 533,
                 overflow: project.text.overflow,
-                shadow: project.text.shadow,
             },
         );
         return;
     }
-    if (ticker.metrics) {
-        drawMetrics(render);
-    }
+    if (ticker.metrics) drawMetrics(render);
     if (ticker.news) {
         const urgent = ticker.newsTone === 'urgent';
-        rect(ctx, urgent ? '#dee017' : '#142128', 62, 522, 900, 29);
+        drawPsdAsset(render, urgent ? 'urgent-news' : 'news');
         ctx.save();
         ctx.beginPath();
-        ctx.rect(70, 522, 880, 29);
+        ctx.rect(70, 522, 881, 29);
         ctx.clip();
-        ctx.font = bodyFont(project, 21);
-        ctx.textBaseline = 'top';
-        ctx.fillStyle = urgent ? '#000000' : '#ffffff';
-        ctx.fillText(ticker.newsText, 70 - ticker.newsOffset, 528);
+        drawPsdText(
+            render,
+            'news',
+            ticker.newsText,
+            { x: 70 - ticker.newsOffset, y: 523, width: 10000, height: 28 },
+            { color: urgent ? '#000000' : '#ffffff', overflow: 'clip' },
+        );
         ctx.restore();
     }
 }
 
 function trafficColor(value: number): string {
-    return value <= 3 ? '#00d600' : value <= 6 ? '#dedf00' : '#db1515';
+    return value <= 3 ? '#12cd12' : value <= 6 ? '#dee017' : '#ce1717';
 }
 
 function drawMetrics(render: RenderContext): void {
     const { ctx, project } = render;
     const { ticker } = project;
-    rect(ctx, '#1c211f', 62, 494, 900, 26);
+    const source = render.images.get('asset:psd/metrics')!;
+    // Stretch a clean section of the original plate. Its borders and separators
+    // are then placed around editable cells rather than baked into the text.
+    ctx.drawImage(source, 10, 0, 40, 30, 62, 491, 900, 30);
     let start = 62;
-    ctx.font = bodyFont(project, 22);
     if (ticker.clock) {
-        const urgent = project.broadcast.headline && project.broadcast.headlineTone === 'urgent';
-        rect(
-            ctx,
-            project.style === 'modern' ? '#1c211f' : urgent ? '#b9e52b' : '#55419c',
-            62,
-            494,
-            62,
-            26,
-        );
-        drawText(
-            ctx,
+        drawPsdText(
+            render,
+            'clock',
             ticker.time,
-            { x: 66, y: 498, width: 55, height: 22 },
-            {
-                font: (size) => bodyFont(project, size, true),
-                size: 20,
-                color: urgent && project.style === 'classic' ? '#000000' : '#ffffff',
-                overflow: 'shrink',
-            },
+            { x: 70, y: 493, width: 55, height: 27 },
+            { overflow: 'shrink' },
         );
-        start = 126;
+        ctx.drawImage(source, 67, 0, 3, 30, 129, 491, 3, 30);
+        start = 132;
     }
     ctx.save();
     ctx.beginPath();
-    ctx.rect(start, 494, 962 - start, 26);
+    ctx.rect(start, 491, 962 - start, 30);
     ctx.clip();
     let x = start - ticker.metricsOffset;
-    const segment = (value: string, color = '#ffffff', background?: string) => {
-        ctx.font = bodyFont(project, 22);
-        const width = ctx.measureText(value).width + 16;
-        rect(ctx, background ?? '#1c211f', x, 494, width - 3, 26);
-        rect(ctx, '#838786', x + width - 3, 494, 3, 26);
+    const segment = (value: string, color = '#ffffff', background?: string, medium = false) => {
+        ctx.font = medium ? sourceFont(project, 19, 'sans', 500) : bodyFont(project, 20);
+        ctx.letterSpacing = '0px';
+        const width = ctx.measureText(value).width + 20;
+        if (background) rect(ctx, background, x, 494, width - 3, 26);
+        ctx.drawImage(source, 67, 0, 3, 30, x + width - 3, 491, 3, 30);
         ctx.fillStyle = color;
-        ctx.textBaseline = 'top';
-        ctx.fillText(value, x + 5, 497);
+        ctx.textBaseline = 'alphabetic';
+        ctx.fillText(value, x + 8, 513.5);
         x += width;
     };
-    if (ticker.temperature) {
-        segment(ticker.degrees);
-    }
+    if (ticker.temperature) segment(ticker.degrees);
     if (ticker.mood) {
         segment('В конфе');
-        const colors = { green: '#00d600', yellow: '#dedf00', red: '#db1515' };
-        segment(ticker.moodText, '#000000', colors[ticker.moodTone]);
+        const colors = { green: '#12cd12', yellow: '#dee017', red: '#ce1717' };
+        segment(ticker.moodText, '#000000', colors[ticker.moodTone], true);
     }
     if (ticker.stocks) {
         segment(ticker.symbol);
         const sign = ticker.trend === 'up' ? '▲' : ticker.trend === 'down' ? '▼' : '—';
         const color =
-            ticker.trend === 'up' ? '#00d600' : ticker.trend === 'down' ? '#db1515' : '#ffffff';
-        segment(`${sign} ${ticker.value}`, color);
+            ticker.trend === 'up' ? '#12cd12' : ticker.trend === 'down' ? '#ce1717' : '#ffffff';
+        segment(`${sign} ${ticker.value}`, color, undefined, true);
     }
     if (ticker.traffic) {
-        const items = [
+        for (const item of [
             { street: ticker.street, value: ticker.trafficValue },
             { street: ticker.street2, value: ticker.trafficValue2 },
-        ];
-        items.forEach((item) => {
-            if (!item.street) {
-                return;
-            }
+        ]) {
+            if (!item.street) continue;
             segment(item.street);
             const label =
                 project.style === 'classic'
                     ? String(item.value)
                     : `${item.value} ${ticker.direction || 'баллов'}`;
-            segment(label, '#000000', trafficColor(item.value));
-        });
+            segment(label, trafficColor(item.value), undefined, true);
+        }
     }
     ctx.restore();
 }

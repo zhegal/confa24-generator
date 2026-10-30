@@ -19,11 +19,7 @@
             <span>
                 {{ font.label }}
                 <small>
-                    {{
-                        project.appearance[font.key]
-                            ? 'Свой файл загружен'
-                            : 'Системный + резервный'
-                    }}
+                    {{ project.appearance[font.key] ? 'Свой файл загружен' : font.original }}
                 </small>
             </span>
             <input
@@ -52,8 +48,18 @@
 
     const { project, notify } = useEditorContext();
     const fontKinds = [
-        { kind: 'serif', key: 'serifFont', label: 'Заголовки с засечками' },
-        { kind: 'sans', key: 'sansFont', label: 'Шрифт без засечек' },
+        {
+            kind: 'serif',
+            key: 'serifFont',
+            label: 'Заголовки с засечками',
+            original: 'PF Agora Slab Pro · из PSD',
+        },
+        {
+            kind: 'sans',
+            key: 'sansFont',
+            label: 'Шрифт без засечек',
+            original: 'PF Agora Sans Pro · из PSD',
+        },
     ] as const;
 
     async function uploadFont(event: Event, kind: 'serif' | 'sans'): Promise<void> {

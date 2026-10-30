@@ -6,7 +6,7 @@ export const templates: TemplateDefinition[] = [
         name: 'Заставка передачи',
         group: 'Эфир',
         reference: 37,
-        description: 'Круглая эмблема, название и цветная дуга.',
+        description: 'Круглая эмблема, название и фирменная дуга.',
         images: 1,
     },
     {

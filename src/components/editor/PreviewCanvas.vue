@@ -2,8 +2,8 @@
     <div class="canvas-container" :aria-busy="rendering">
         <canvas
             ref="canvas"
-            width="1280"
-            height="720"
+            :width="FRAME_WIDTH"
+            :height="FRAME_HEIGHT"
             role="img"
             :aria-label="`Кадр: ${project.content.title || project.content.category}`"
         />
@@ -25,7 +25,7 @@
     import { AlertCircle } from '@lucide/vue';
     import { useEditorContext } from '../../composables/useEditorContext';
     import { assetRevision } from '../../services/localArchive';
-    import { renderFrame } from '../../render';
+    import { renderFrame, FRAME_WIDTH, FRAME_HEIGHT } from '../../render';
     import type { Project } from '../../types/project';
 
     const { project, guides } = useEditorContext();
@@ -51,7 +51,7 @@
                     await renderFrame(frame, snapshot, guides.value);
                     if (current === sequence && canvas.value) {
                         const ctx = canvas.value.getContext('2d')!;
-                        ctx.clearRect(0, 0, 1280, 720);
+                        ctx.clearRect(0, 0, FRAME_WIDTH, FRAME_HEIGHT);
                         ctx.drawImage(frame, 0, 0);
                         error.value = '';
                     }

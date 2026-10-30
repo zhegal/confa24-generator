@@ -1,4 +1,5 @@
 import type { Project } from '../types/project';
+import psd from '../data/psd.json';
 
 const images = new Map<string, Promise<HTMLImageElement>>();
 const fonts = new Map<string, Promise<void>>();
@@ -24,6 +25,9 @@ export function imageUrl(source: string): string {
         return source;
     }
     const name = source.slice(6);
+    if (name.startsWith('psd/')) {
+        return publicUrl(`assets/${name}.png`);
+    }
     const marks = [
         'mark',
         'mark-inverse',
@@ -70,8 +74,14 @@ export function customFontName(source: string, kind: string): string {
 
 export async function prepareFonts(project: Project): Promise<void> {
     await Promise.all([
+        document.fonts.load('400 32px "Confa Serif"'),
+        document.fonts.load('700 32px "Confa Serif"'),
         document.fonts.load('italic 700 32px "Confa Serif"'),
         document.fonts.load('400 22px "Confa Sans"'),
+        document.fonts.load('italic 400 22px "Confa Sans"'),
+        document.fonts.load('italic 300 22px "Confa Sans"'),
+        document.fonts.load('500 22px "Confa Sans"'),
+        document.fonts.load('italic 500 22px "Confa Sans"'),
         document.fonts.load('700 22px "Confa Sans"'),
         document.fonts.load('italic 700 32px "Confa Sans"'),
     ]);
@@ -96,7 +106,10 @@ export async function prepareFonts(project: Project): Promise<void> {
 }
 
 export function requiredAssetSources(project: Project): string[] {
-    const sources = ['asset:mark'];
+    const sources = [
+        'asset:mark',
+        ...requiredPsdAssets(project).map((name) => `asset:psd/${name}`),
+    ];
     if (['ident', 'promo'].includes(project.template)) {
         sources.push('asset:mark-inverse');
     }
@@ -107,8 +120,47 @@ export function requiredAssetSources(project: Project): string[] {
     } else if (project.appearance.texture) {
         sources.push('asset:silver-background');
     }
+    if (!project.appearance.originalBackground && project.appearance.texture) {
+        sources.push('asset:silver-background');
+    }
     sources.push(...project.images.map((item) => item.src).filter(Boolean));
     return [...new Set(sources)];
+}
+
+function requiredPsdAssets(project: Project): (keyof typeof psd.assets)[] {
+    const { broadcast, ticker } = project;
+    const sources: (keyof typeof psd.assets)[] = [];
+    if (broadcast.channel) {
+        sources.push('channel-wordmark');
+        if (broadcast.status !== 'none') sources.push('live');
+    }
+    if (broadcast.category) sources.push('category');
+    if (broadcast.speaker) sources.push('speaker');
+    else if (broadcast.headline) sources.push(broadcast.description ? 'description' : 'headline');
+    if (ticker.enabled && ticker.mode !== 'none') {
+        sources.push('ticker-base');
+        if (ticker.mode === 'social' || ticker.mode === 'sms') sources.push(ticker.mode);
+        else {
+            if (ticker.metrics) sources.push('metrics');
+            if (ticker.news) sources.push(ticker.newsTone === 'urgent' ? 'urgent-news' : 'news');
+        }
+    }
+    if (project.template === 'bars') sources.push('bars');
+    else if (project.template === 'ident')
+        sources.push(project.style === 'classic' ? 'ident-classic' : 'ident-modern');
+    else if (project.template === 'event') sources.push('event');
+    else if (project.template === 'quote') sources.push('quote');
+    if (
+        !['bars', 'photo', 'music', 'sport', 'traffic', 'night', 'chat', 'promo'].includes(
+            project.template,
+        )
+    ) {
+        sources.push('background-gray', 'background-mint');
+        if (project.style === 'modern' && project.appearance.texture)
+            sources.push('background-triangles');
+        if (project.template === 'program') sources.push('program-mask');
+    }
+    return sources;
 }
 
 export async function projectImages(project: Project): Promise<Map<string, HTMLImageElement>> {

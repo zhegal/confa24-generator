@@ -2,8 +2,8 @@ import type { ImageSettings, Tone } from '../types/project';
 import type { Rectangle, RenderContext } from './types';
 
 export const toneColors: Record<Tone, { background: string; text: string }> = {
-    dark: { background: '#142128', text: '#ffffff' },
-    light: { background: '#f5f5f5', text: '#000000' },
+    dark: { background: '#1c211f', text: '#ffffff' },
+    light: { background: '#e7f0ef', text: '#000000' },
     urgent: { background: '#dee017', text: '#000000' },
     burgundy: { background: '#482120', text: '#ffffff' },
 };
@@ -66,9 +66,5 @@ export function drawMark(render: RenderContext, x: number, y: number, size: numb
         return;
     }
     const { ctx } = render;
-    ctx.save();
-    ctx.shadowBlur = 15;
-    ctx.shadowColor = '#ffffff';
     ctx.drawImage(image, x, y, size, size);
-    ctx.restore();
 }

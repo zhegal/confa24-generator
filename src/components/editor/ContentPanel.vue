@@ -10,7 +10,9 @@
     </ControlSection>
     <ControlSection v-if="project.template === 'program'" title="Композиция">
         <FieldControl :field="{ path: 'appearance.circle', label: 'Белый круг', type: 'toggle' }" />
-        <FieldControl :field="{ path: 'appearance.arc', label: 'Цветная дуга', type: 'toggle' }" />
+        <FieldControl
+            :field="{ path: 'appearance.arc', label: 'Фирменная дуга', type: 'toggle' }"
+        />
     </ControlSection>
     <div class="panel-note">
         <Info :size="15" />

@@ -1,6 +1,7 @@
 import { lowerPanelOffset } from './safe-area';
 import { drawImage, rect } from './primitives';
 import { bodyFont, displayFont, drawText } from './text';
+import { drawPsdAsset, drawPsdText } from './psd';
 import type { RenderContext } from './types';
 
 export function drawMaterial(render: RenderContext): void {
@@ -36,71 +37,72 @@ export function drawEvent(render: RenderContext): void {
     drawCollage(render, true);
     ctx.save();
     ctx.translate(0, lowerPanelOffset(project));
-    rect(ctx, '#353b3e', 62, 356, 117, 24);
-    rect(ctx, '#ccc9d5', 62, 383, 117, 108);
-    rect(ctx, '#51427d', 182, 383, 780, 24);
-    rect(ctx, '#353b3e', 182, 410, 780, 81);
-    drawText(
-        ctx,
+    drawPsdAsset(render, 'event');
+    drawPsdText(
+        render,
+        'date',
         content.eventLabel,
-        { x: 68, y: 359, width: 106, height: 20 },
+        { x: 68, y: 356, width: 106, height: 24 },
         {
-            font: (size) => bodyFont(project, size),
-            size: 17,
+            align: 'center',
             overflow: 'shrink',
         },
     );
-    drawText(
-        ctx,
+    drawPsdText(
+        render,
+        'date',
         content.day,
-        { x: 64, y: 391, width: 113, height: 66 },
+        { x: 64, y: 383, width: 113, height: 76 },
         {
-            font: (size) => bodyFont(project, size, true),
-            size: 64,
+            run: 1,
+            baseline: 443,
             color: '#000000',
             align: 'center',
             overflow: 'shrink',
         },
     );
-    drawText(
-        ctx,
+    drawPsdText(
+        render,
+        'date',
         content.month,
-        { x: 64, y: 459, width: 113, height: 30 },
+        { x: 64, y: 459, width: 113, height: 32 },
         {
-            font: (size) => bodyFont(project, size, true),
-            size: 26,
+            run: 2,
+            baseline: 479,
             color: '#000000',
             align: 'center',
             overflow: 'shrink',
         },
     );
-    drawText(
-        ctx,
+    drawPsdText(
+        render,
+        'event',
         content.venue,
-        { x: 192, y: 387, width: 760, height: 21 },
+        { x: 193, y: 383, width: 760, height: 27 },
         {
-            font: (size) => bodyFont(project, size),
-            size: 20,
             overflow: project.text.overflow,
         },
     );
-    drawText(
-        ctx,
+    drawPsdText(
+        render,
+        'event',
         content.title,
-        { x: 192, y: 413, width: 760, height: 34 },
+        { x: 193, y: 409, width: 760, height: 34 },
         {
-            font: (size) => displayFont(project, size),
-            size: 32,
+            run: 1,
+            baseline: 438,
             overflow: project.text.overflow,
         },
     );
-    drawText(
-        ctx,
+    drawPsdText(
+        render,
+        'event',
         content.body,
-        { x: 192, y: 448, width: 760, height: 42 },
+        { x: 193, y: 443, width: 760, height: 48 },
         {
-            font: (size) => bodyFont(project, size),
-            size: 20,
+            run: 5,
+            baseline: 461,
+            lineHeight: 23 / 19,
             overflow: project.text.overflow,
         },
     );

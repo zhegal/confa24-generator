@@ -1,34 +1,42 @@
 import { drawImage, rect } from './primitives';
 import { bodyFont, displayFont, drawText } from './text';
 import type { RenderContext } from './types';
+import { drawPsdAsset, drawPsdText } from './psd';
 
 export function drawQuote(render: RenderContext): void {
     const { ctx, project } = render;
-    rect(ctx, '#f5f5f5', 170, 125, 690, 280);
-    drawText(
-        ctx,
+    const bottom = project.broadcast.speaker
+        ? 427
+        : project.broadcast.headline
+          ? project.broadcast.description
+              ? 385
+              : 445
+          : 491;
+    drawPsdAsset(render, 'quote');
+    drawPsdText(
+        render,
+        'quote',
         project.content.author ? `${project.content.author}:` : '',
         {
-            x: 190,
-            y: 142,
-            width: 650,
-            height: 40,
+            x: 81,
+            y: 270,
+            width: 860,
+            height: 42,
         },
         {
-            font: (size) => displayFont(project, size),
-            size: 26,
-            color: '#51427d',
+            run: 1,
             overflow: project.text.overflow,
         },
     );
-    drawText(
-        ctx,
+    drawPsdText(
+        render,
+        'quote',
         project.content.body,
-        { x: 190, y: 190, width: 650, height: 200 },
+        { x: 81, y: 313, width: 860, height: bottom - 313 },
         {
-            font: (size) => bodyFont(project, size, true),
-            size: 24,
-            color: '#111111',
+            run: 2,
+            baseline: 341,
+            lineHeight: 42 / 28,
             overflow: project.text.overflow,
         },
     );

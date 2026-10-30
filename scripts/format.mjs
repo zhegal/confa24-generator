@@ -25,6 +25,7 @@ for (const directory of ['src', 'tests', 'scripts', '.github/workflows']) {
     paths.push(...(await files(directory)));
 }
 for (const path of paths) {
+    if (!/\.(json|ts|vue|css|html|mjs|yml)$/.test(path)) continue;
     const source = await readFile(path, 'utf8');
     const configuration = await resolveConfig(path);
     const formatted = await format(source, { ...configuration, filepath: path });

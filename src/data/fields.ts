@@ -112,13 +112,19 @@ export const appearanceFields: FieldDefinition[] = [
         label: 'Оформление',
         type: 'select',
         options: options({
-            classic: 'С засечками · классическое',
-            modern: 'Без засечек · позднее',
+            classic: 'Классическое · серый фон',
+            modern: 'Позднее · треугольники',
         }),
     },
     { path: 'appearance.accent', label: 'Цвет акцента / дуги', type: 'color' },
-    { path: 'appearance.background', label: 'Цвет фона', type: 'color' },
-    { path: 'appearance.texture', label: 'Текстура серого фона', type: 'toggle' },
+    {
+        path: 'appearance.background',
+        label: 'Цвет фона',
+        type: 'color',
+        hint: 'Для своего цвета отключите исходный фон из PSD.',
+    },
+    { path: 'appearance.originalBackground', label: 'Исходный фон из PSD', type: 'toggle' },
+    { path: 'appearance.texture', label: 'Рисунок фона', type: 'toggle' },
     {
         path: 'appearance.shade',
         label: 'Затемнение фона',

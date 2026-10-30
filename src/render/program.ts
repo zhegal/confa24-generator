@@ -1,15 +1,17 @@
-import { displayFont, drawText } from './text';
 import { drawImage } from './primitives';
+import { drawPsdText } from './psd';
 import type { RenderContext } from './types';
 
 export function drawProgram(render: RenderContext): void {
     const { ctx, project } = render;
-    if (project.appearance.circle) {
-        ctx.fillStyle = '#ffffff';
-        ctx.beginPath();
-        ctx.arc(227.5, 274.5, 148.5, 0, Math.PI * 2);
-        ctx.fill();
-    }
+    ctx.fillStyle = project.appearance.circle
+        ? '#ffffff'
+        : project.appearance.originalBackground
+          ? '#2f2f2f'
+          : project.appearance.background;
+    ctx.beginPath();
+    ctx.arc(227.5, 274.5, 148.5, 0, Math.PI * 2);
+    ctx.fill();
     drawImage(
         render,
         project.images[0]!,
@@ -22,18 +24,19 @@ export function drawProgram(render: RenderContext): void {
         project.appearance.circle,
     );
     const lines = project.content.title.split('\n').length;
-    drawText(
-        ctx,
+    drawPsdText(
+        render,
+        'program',
         project.content.title,
         {
             x: 448,
-            y: lines > 1 ? 234 : 244,
+            y: 126,
             width: 445,
-            height: 148,
+            height: 297,
         },
         {
-            font: (size) => displayFont(project, size),
-            size: 50,
+            baseline: Math.max(166, 279 - (lines - 1) * 27),
+            lineHeight: 1.2,
             overflow: project.text.overflow,
             shadow: project.text.shadow,
         },
@@ -44,25 +47,27 @@ export function drawIdent(render: RenderContext): void {
     const { ctx, project } = render;
     if (project.images[0]!.src) {
         drawImage(render, project.images[0]!, { x: 410, y: 184, width: 205, height: 205 });
-    } else {
+    } else if (project.style === 'modern') {
+        ctx.fillStyle = '#060401';
+        ctx.beginPath();
+        ctx.arc(511.5, 287.5, 97.5, 0, Math.PI * 2);
+        ctx.fill();
         const mark = render.images.get('asset:mark-inverse');
-        if (mark) {
-            ctx.drawImage(mark, 414, 190, 195, 195);
-        }
+        if (mark) ctx.drawImage(mark, 414, 190, 195, 195);
     }
     if (project.content.body) {
-        drawText(
-            ctx,
+        drawPsdText(
+            render,
+            'ident',
             project.content.body,
             {
-                x: 630,
-                y: 225,
-                width: 210,
-                height: 130,
+                x: 625,
+                y: 201,
+                width: 190,
+                height: 185,
             },
             {
-                font: (size) => displayFont(project, size, true),
-                size: 12,
+                lineHeight: 1.2,
                 overflow: project.text.overflow,
                 color: '#b0b0b0',
             },

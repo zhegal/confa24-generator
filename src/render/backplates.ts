@@ -22,15 +22,22 @@ export function drawBackplate(render: RenderContext, kind: 'program' | 'silver' 
         const target = plate.getContext('2d')!;
         target.drawImage(source, 0, 0, 1024, 576);
         const pixels = target.getImageData(0, 0, 1024, 576);
+        const mask = kind === 'program' ? images.get('asset:psd/program-mask') : undefined;
+        let maskPixels: Uint8ClampedArray | undefined;
+        if (mask) {
+            target.clearRect(0, 0, 1024, 576);
+            target.drawImage(mask, 0, 0);
+            maskPixels = target.getImageData(0, 0, 1024, 576).data;
+        }
         const base = channels(background);
         const tint = channels(accent);
         for (let index = 0; index < pixels.data.length; index += 4) {
             const r = pixels.data[index]!;
             const g = pixels.data[index + 1]!;
             const b = pixels.data[index + 2]!;
-            const band = kind === 'program' && g > r * 1.3 && b > r * 1.3;
+            const band = kind === 'program' && maskPixels && maskPixels[index + 3]! < 128;
             if (band) {
-                const factor = arc ? (r + g + b) / 310 : 1;
+                const factor = arc ? (r + g + b) / (166 * 3) : 1;
                 const color = arc ? tint : base;
                 color.forEach((value, channel) => (pixels.data[index + channel] = value * factor));
             } else if (kind === 'silver') {

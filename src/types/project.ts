@@ -100,7 +100,8 @@ export const projectSchema = z.object({
         lyrics: text,
     }),
     appearance: z.object({
-        broadcastSafe: z.boolean().default(true),
+        broadcastSafe: z.boolean().default(false),
+        originalBackground: z.boolean().default(true),
         accent: color,
         background: color,
         texture: z.boolean(),

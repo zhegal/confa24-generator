@@ -1,0 +1,698 @@
+{
+    "width": 1024,
+    "height": 576,
+    "sourceSha256": "71c28bccdcff286aa89f5378e059532e6781fb2077c5f38a6fb32e37a76c747b",
+    "assets": {
+        "background-gray": {
+            "x": 0,
+            "y": 0,
+            "width": 1024,
+            "height": 576,
+            "layerId": 139
+        },
+        "background-mint": {
+            "x": 0,
+            "y": 0,
+            "width": 1024,
+            "height": 576,
+            "layerId": 419
+        },
+        "background-triangles": {
+            "x": 55,
+            "y": 6,
+            "width": 950,
+            "height": 546,
+            "layerId": 495
+        },
+        "program-mask": {
+            "x": 0,
+            "y": 0,
+            "width": 919,
+            "height": 576,
+            "layerId": 71
+        },
+        "ident-classic": {
+            "x": 0,
+            "y": 0,
+            "width": 1024,
+            "height": 576,
+            "layerId": 81
+        },
+        "ident-modern": {
+            "x": 0,
+            "y": 0,
+            "width": 1024,
+            "height": 576,
+            "layerId": 458
+        },
+        "bars": {
+            "x": 0,
+            "y": 0,
+            "width": 1024,
+            "height": 576,
+            "layerId": 51
+        },
+        "mark": {
+            "x": 70,
+            "y": 32,
+            "width": 75,
+            "height": 75,
+            "layerId": 338
+        },
+        "channel-wordmark": {
+            "x": 794,
+            "y": 31,
+            "width": 164,
+            "height": 35,
+            "layerId": 3
+        },
+        "category": {
+            "x": 171,
+            "y": 30,
+            "width": 344,
+            "height": 42,
+            "layerId": 27
+        },
+        "headline": {
+            "x": 62,
+            "y": 445,
+            "width": 900,
+            "height": 46,
+            "layerId": 24
+        },
+        "description": {
+            "x": 62,
+            "y": 385,
+            "width": 900,
+            "height": 106,
+            "layerId": 101
+        },
+        "speaker": {
+            "x": 62,
+            "y": 427,
+            "width": 900,
+            "height": 64,
+            "layerId": 181
+        },
+        "event": {
+            "x": 62,
+            "y": 356,
+            "width": 900,
+            "height": 135,
+            "layerId": 138
+        },
+        "quote": {
+            "x": 62,
+            "y": 269,
+            "width": 900,
+            "height": 222,
+            "layerId": 355
+        },
+        "ticker-base": {
+            "x": 62,
+            "y": 491,
+            "width": 900,
+            "height": 85,
+            "layerId": 180
+        },
+        "ticker": {
+            "x": 37,
+            "y": 454,
+            "width": 930,
+            "height": 98,
+            "layerId": 156
+        },
+        "urgent-news": {
+            "x": 62,
+            "y": 522,
+            "width": 900,
+            "height": 29,
+            "layerId": 160
+        },
+        "live": {
+            "x": 798,
+            "y": 71,
+            "width": 156,
+            "height": 29,
+            "layerId": 294
+        },
+        "address": {
+            "x": 55,
+            "y": 418,
+            "width": 347,
+            "height": 95,
+            "layerId": 31
+        },
+        "next": {
+            "x": 172,
+            "y": 70,
+            "width": 412,
+            "height": 33,
+            "layerId": 384
+        },
+        "social": {
+            "x": 62,
+            "y": 494,
+            "width": 900,
+            "height": 57,
+            "layerId": 291
+        },
+        "sms": {
+            "x": 62,
+            "y": 494,
+            "width": 900,
+            "height": 57,
+            "layerId": 374
+        },
+        "metrics": {
+            "x": 62,
+            "y": 491,
+            "width": 900,
+            "height": 30,
+            "layerId": 156
+        },
+        "news": {
+            "x": 62,
+            "y": 522,
+            "width": 900,
+            "height": 29,
+            "layerId": 156
+        }
+    },
+    "text": {
+        "ident": {
+            "layerId": 72,
+            "x": 625.0,
+            "baseline": 212.0,
+            "bbox": [625, 203, 812, 380],
+            "styles": [
+                {
+                    "font": "PFAgoraSansPro-Regular",
+                    "size": 12.5,
+                    "weight": 400,
+                    "italic": false,
+                    "tracking": 0,
+                    "leading": 22.8,
+                    "color": [0.65882, 0.65882, 0.65882]
+                }
+            ],
+            "shadow": null
+        },
+        "event": {
+            "layerId": 133,
+            "x": 193.0,
+            "baseline": 402.0,
+            "bbox": [194, 388, 801, 487],
+            "styles": [
+                {
+                    "font": "PFAgoraSansPro-Regular",
+                    "size": 19.0,
+                    "weight": 400,
+                    "italic": false,
+                    "tracking": 0,
+                    "leading": 40.0,
+                    "color": [1.0, 1.0, 1.0]
+                },
+                {
+                    "font": "PFAgoraSlabPro-Bold",
+                    "size": 29.0,
+                    "weight": 700,
+                    "italic": false,
+                    "tracking": 0,
+                    "leading": 36.0,
+                    "color": [1.0, 1.0, 1.0]
+                },
+                {
+                    "font": "PFAgoraSlabPro-Bold",
+                    "size": 29.0,
+                    "weight": 700,
+                    "italic": false,
+                    "tracking": 0,
+                    "leading": 36.0,
+                    "color": [1.0, 1.0, 1.0]
+                },
+                {
+                    "font": "PFAgoraSlabPro-Bold",
+                    "size": 29.0,
+                    "weight": 700,
+                    "italic": false,
+                    "tracking": 0,
+                    "leading": 36.0,
+                    "color": [1.0, 1.0, 1.0]
+                },
+                {
+                    "font": "PFAgoraSlabPro-Bold",
+                    "size": 29.0,
+                    "weight": 700,
+                    "italic": false,
+                    "tracking": 0,
+                    "leading": 36.0,
+                    "color": [1.0, 1.0, 1.0]
+                },
+                {
+                    "font": "PFAgoraSansPro-Italic",
+                    "size": 19.0,
+                    "weight": 400,
+                    "italic": true,
+                    "tracking": 0,
+                    "leading": 23.0,
+                    "color": [1.0, 1.0, 1.0]
+                },
+                {
+                    "font": "PFAgoraSansPro-Italic",
+                    "size": 19.0,
+                    "weight": 400,
+                    "italic": true,
+                    "tracking": 0,
+                    "leading": 22.0,
+                    "color": [1.0, 1.0, 1.0]
+                },
+                {
+                    "font": "PFBeauSansPro-Regular",
+                    "size": 18.0,
+                    "weight": 400,
+                    "italic": false,
+                    "tracking": 0,
+                    "leading": 30.0,
+                    "color": [1.0, 1.0, 1.0]
+                }
+            ],
+            "shadow": null
+        },
+        "date": {
+            "layerId": 131,
+            "x": 121.38806915283203,
+            "baseline": 373.0,
+            "bbox": [71, 364, 172, 483],
+            "styles": [
+                {
+                    "font": "PFAgoraSansPro-Regular",
+                    "size": 17.5,
+                    "weight": 400,
+                    "italic": false,
+                    "tracking": 0,
+                    "leading": 70.0,
+                    "color": [1.0, 1.0, 1.0]
+                },
+                {
+                    "font": "PFAgoraSlabPro-Regular",
+                    "size": 66.0,
+                    "weight": 400,
+                    "italic": false,
+                    "tracking": 0,
+                    "leading": 70.0,
+                    "color": [0.0, 0.0, 0.0]
+                },
+                {
+                    "font": "PFAgoraSlabPro-Regular",
+                    "size": 25.0,
+                    "weight": 400,
+                    "italic": false,
+                    "tracking": 0,
+                    "leading": 36.0,
+                    "color": [0.0, 0.0, 0.0]
+                }
+            ],
+            "shadow": null
+        },
+        "program": {
+            "layerId": 66,
+            "x": 448.0,
+            "baseline": 279.0,
+            "bbox": [448, 248, 809, 289],
+            "styles": [
+                {
+                    "font": "PFAgoraSlabPro-BoldItalic",
+                    "size": 45.0,
+                    "weight": 700,
+                    "italic": true,
+                    "tracking": 0,
+                    "leading": 22.8,
+                    "color": [1.0, 1.0, 1.0]
+                }
+            ],
+            "shadow": {
+                "color": "rgba(0,0,0,0.75)",
+                "blur": 5.0,
+                "offsetX": 1.4999999999999996,
+                "offsetY": 2.598076211353316
+            }
+        },
+        "speaker": {
+            "layerId": 183,
+            "x": 70.0,
+            "baseline": 457.0,
+            "bbox": [71, 435, 421, 488],
+            "styles": [
+                {
+                    "font": "PFAgoraSlabPro-BoldItalic",
+                    "size": 30.0,
+                    "weight": 700,
+                    "italic": true,
+                    "tracking": 0,
+                    "leading": 47.9933,
+                    "color": [0.75355, 0.78431, 0.77298]
+                },
+                {
+                    "font": "PFAgoraSansPro-Regular",
+                    "size": 20.0,
+                    "weight": 400,
+                    "italic": false,
+                    "tracking": 0,
+                    "leading": 26.0,
+                    "color": [0.96117, 0.98039, 0.97331]
+                }
+            ],
+            "shadow": null
+        },
+        "news": {
+            "layerId": 90,
+            "x": 70.0,
+            "baseline": 544.0,
+            "bbox": [71, 530, 864, 549],
+            "styles": [
+                {
+                    "font": "PFAgoraSansPro-Regular",
+                    "size": 20.0,
+                    "weight": 400,
+                    "italic": false,
+                    "tracking": 0,
+                    "leading": 22.8,
+                    "color": [1.0, 1.0, 1.0]
+                }
+            ],
+            "shadow": null
+        },
+        "clock": {
+            "layerId": 18,
+            "x": 70.0,
+            "baseline": 513.5,
+            "bbox": [71, 500, 122, 514],
+            "styles": [
+                {
+                    "font": "PFAgoraSansPro-Bold",
+                    "size": 19.0,
+                    "weight": 700,
+                    "italic": false,
+                    "tracking": 0,
+                    "leading": 21.6,
+                    "color": [1.0, 1.0, 1.0]
+                }
+            ],
+            "shadow": null
+        },
+        "stock-name": {
+            "layerId": 216,
+            "x": 139.74660271782574,
+            "baseline": 513.5,
+            "bbox": [139, 499, 190, 514],
+            "styles": [
+                {
+                    "font": "PFAgoraSansPro-Regular",
+                    "size": 20.0,
+                    "weight": 400,
+                    "italic": false,
+                    "tracking": 0,
+                    "leading": 22.8,
+                    "color": [1.0, 1.0, 1.0]
+                }
+            ],
+            "shadow": null
+        },
+        "stock-value": {
+            "layerId": 317,
+            "x": 391.04516386890487,
+            "baseline": 513.5,
+            "bbox": [210, 499, 390, 518],
+            "styles": [
+                {
+                    "font": "PFAgoraSansPro-Medium",
+                    "size": 19.0,
+                    "weight": 500,
+                    "italic": false,
+                    "tracking": 0,
+                    "leading": 24.0,
+                    "color": [1.0, 1.0, 1.0]
+                },
+                {
+                    "font": "PFAgoraSansPro-Medium",
+                    "size": 19.0,
+                    "weight": 500,
+                    "italic": false,
+                    "tracking": 0,
+                    "leading": 24.0,
+                    "color": [0.07059, 0.80392, 0.07059]
+                }
+            ],
+            "shadow": null
+        },
+        "mood": {
+            "layerId": 382,
+            "x": 467.5,
+            "baseline": 513.5,
+            "bbox": [408, 501, 528, 518],
+            "styles": [
+                {
+                    "font": "PFAgoraSansPro-Regular",
+                    "size": 17.0,
+                    "weight": 400,
+                    "italic": false,
+                    "tracking": -20,
+                    "leading": 22.8,
+                    "color": [1.0, 1.0, 1.0]
+                },
+                {
+                    "font": "PFAgoraSansPro-Medium",
+                    "size": 17.0,
+                    "weight": 500,
+                    "italic": false,
+                    "tracking": -20,
+                    "leading": 22.8,
+                    "color": [1.0, 1.0, 1.0]
+                },
+                {
+                    "font": "PFAgoraSansPro-Medium",
+                    "size": 17.0,
+                    "weight": 500,
+                    "italic": false,
+                    "tracking": -20,
+                    "leading": 22.8,
+                    "color": [0.07059, 0.80392, 0.07059]
+                }
+            ],
+            "shadow": null
+        },
+        "street": {
+            "layerId": 217,
+            "x": 545.5,
+            "baseline": 513.5,
+            "bbox": [546, 503, 797, 518],
+            "styles": [
+                {
+                    "font": "PFAgoraSansPro-Regular",
+                    "size": 20.0,
+                    "weight": 400,
+                    "italic": false,
+                    "tracking": -20,
+                    "leading": 22.8,
+                    "color": [1.0, 1.0, 1.0]
+                }
+            ],
+            "shadow": null
+        },
+        "traffic": {
+            "layerId": 208,
+            "x": 949.0,
+            "baseline": 513.5,
+            "bbox": [815, 504, 949, 518],
+            "styles": [
+                {
+                    "font": "PFAgoraSansPro-Medium",
+                    "size": 19.0,
+                    "weight": 500,
+                    "italic": false,
+                    "tracking": 0,
+                    "leading": 24.0,
+                    "color": [0.80783, 0.09021, 0.09021]
+                }
+            ],
+            "shadow": null
+        },
+        "headline": {
+            "layerId": 15,
+            "x": 70.479736328125,
+            "baseline": 479.0,
+            "bbox": [71, 458, 951, 486],
+            "styles": [
+                {
+                    "font": "PFAgoraSlabPro-BoldItalic",
+                    "size": 29.0,
+                    "weight": 700,
+                    "italic": true,
+                    "tracking": 0,
+                    "leading": 18.0,
+                    "color": [0.0, 0.0, 0.0]
+                }
+            ],
+            "shadow": null
+        },
+        "quote": {
+            "layerId": 351,
+            "x": 81.0,
+            "baseline": 299.0,
+            "bbox": [82, 284, 187, 342],
+            "styles": [
+                {
+                    "font": "PFAgoraSlabPro-Bold",
+                    "size": 28.0,
+                    "weight": 700,
+                    "italic": false,
+                    "tracking": 0,
+                    "leading": 24.0,
+                    "color": [0.0, 0.0, 0.0]
+                },
+                {
+                    "font": "PFAgoraSlabPro-Bold",
+                    "size": 28.0,
+                    "weight": 700,
+                    "italic": false,
+                    "tracking": 0,
+                    "leading": 24.0,
+                    "color": [0.05167, 0.07997, 0.09412]
+                },
+                {
+                    "font": "PFAgoraSansPro-LightItalic",
+                    "size": 28.0,
+                    "weight": 300,
+                    "italic": true,
+                    "tracking": 0,
+                    "leading": 42.0,
+                    "color": [0.90588, 0.94116, 0.93726]
+                }
+            ],
+            "shadow": null
+        },
+        "description": {
+            "layerId": 103,
+            "x": 70.0,
+            "baseline": 414.0,
+            "bbox": [70, 394, 723, 459],
+            "styles": [
+                {
+                    "font": "PFAgoraSlabPro-BoldItalic",
+                    "size": 29.0,
+                    "weight": 700,
+                    "italic": true,
+                    "tracking": 0,
+                    "leading": 40.0,
+                    "color": [0.0, 0.0, 0.0]
+                },
+                {
+                    "font": "PFAgoraSansPro-Regular",
+                    "size": 29.0,
+                    "weight": 400,
+                    "italic": false,
+                    "tracking": 0,
+                    "leading": 40.0,
+                    "color": [1.0, 1.0, 1.0]
+                }
+            ],
+            "shadow": null
+        },
+        "channel": {
+            "layerId": 3,
+            "x": 793.6297607421875,
+            "baseline": 58.3837890625,
+            "bbox": [794, 31, 958, 66],
+            "styles": [
+                {
+                    "font": "PFAgoraSlabPro-BoldItalic",
+                    "size": 36.0,
+                    "weight": 700,
+                    "italic": true,
+                    "tracking": -15,
+                    "leading": 0.01,
+                    "color": [1.0, 1.0, 1.0]
+                }
+            ],
+            "shadow": {
+                "color": "rgba(0,0,0,0.75)",
+                "blur": 3.0,
+                "offsetX": 0.49999999999999983,
+                "offsetY": 0.8660254037844387
+            }
+        },
+        "live": {
+            "layerId": 296,
+            "x": 875.0,
+            "baseline": 92.0,
+            "bbox": [810, 75, 940, 97],
+            "styles": [
+                {
+                    "font": "PFAgoraSansPro-MediumItalic",
+                    "size": 23.0,
+                    "weight": 500,
+                    "italic": true,
+                    "tracking": 0,
+                    "leading": 28.8,
+                    "color": [1.0, 1.0, 1.0]
+                }
+            ],
+            "shadow": null
+        },
+        "address": {
+            "layerId": 32,
+            "x": 70.0,
+            "baseline": 437.00000000000006,
+            "bbox": [71, 423, 197, 442],
+            "styles": [
+                {
+                    "font": "PFAgoraSansPro-Regular",
+                    "size": 20.0,
+                    "weight": 400,
+                    "italic": false,
+                    "tracking": 0,
+                    "leading": 33.6,
+                    "color": [1.0, 1.0, 1.0]
+                }
+            ],
+            "shadow": null
+        },
+        "next": {
+            "layerId": 304,
+            "x": 181.0,
+            "baseline": 92.0,
+            "bbox": [182, 76, 568, 97],
+            "styles": [
+                {
+                    "font": "PFAgoraSansPro-MediumItalic",
+                    "size": 22.0,
+                    "weight": 500,
+                    "italic": true,
+                    "tracking": 0,
+                    "leading": 34.8,
+                    "color": [1.0, 1.0, 1.0]
+                }
+            ],
+            "shadow": null
+        },
+        "category": {
+            "layerId": 28,
+            "x": 183.0,
+            "baseline": 60.475830078125,
+            "bbox": [184, 43, 494, 65],
+            "styles": [
+                {
+                    "font": "PFAgoraSansPro-BoldItalic",
+                    "size": 23.0,
+                    "weight": 700,
+                    "italic": true,
+                    "tracking": 0,
+                    "leading": 0.01,
+                    "color": [1.0, 1.0, 1.0]
+                }
+            ],
+            "shadow": null
+        }
+    }
+}
