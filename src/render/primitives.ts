@@ -66,5 +66,28 @@ export function drawMark(render: RenderContext, x: number, y: number, size: numb
         return;
     }
     const { ctx } = render;
+    let variant = render.project.broadcast.markVariant;
+    if (variant === 'auto' || !variant) {
+        // Read the already-rendered background beneath the emblem, including
+        // photos, custom colors, shading, output scale and safe-area offsets.
+        const transform = ctx.getTransform();
+        const pixels = ctx.getImageData(
+            Math.round(x * transform.a + transform.e),
+            Math.round(y * transform.d + transform.f),
+            Math.max(1, Math.round(size * transform.a)),
+            Math.max(1, Math.round(size * transform.d)),
+        ).data;
+        let luminance = 0;
+        for (let index = 0; index < pixels.length; index += 4) {
+            luminance +=
+                0.2126 * pixels[index]! + 0.7152 * pixels[index + 1]! + 0.0722 * pixels[index + 2]!;
+        }
+        variant = luminance / (pixels.length / 4) >= 128 ? 'light' : 'dark';
+    }
+    ctx.save();
+    // The source PSD contains the white-on-black version. Invert its RGB
+    // channels while preserving the original outline and transparent edges.
+    ctx.filter = variant === 'light' ? 'invert(1)' : 'none';
     ctx.drawImage(image, x, y, size, size);
+    ctx.restore();
 }

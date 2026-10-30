@@ -114,6 +114,7 @@ export const projectSchema = z.object({
     images: z.array(imageSchema).length(4),
     broadcast: z.object({
         mark: z.boolean(),
+        markVariant: z.enum(['auto', 'light', 'dark']).default('auto'),
         channel: z.boolean(),
         channelName: text,
         category: z.boolean(),

@@ -6,7 +6,7 @@
             aria-label="Конфа 24 — главная"
         >
             <span class="brand-mark">
-                <img :src="publicUrl('favicon.png')" alt="" />
+                <img :src="publicUrl('favicon.svg?v=2')" alt="" />
             </span>
             <span class="brand-name">
                 КОНФА

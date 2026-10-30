@@ -51,6 +51,7 @@ export function createProject(template: TemplateId = 'program'): Project {
         images: [emptyImage('asset:evening'), emptyImage(), emptyImage(), emptyImage()],
         broadcast: {
             mark: true,
+            markVariant: 'auto',
             channel: true,
             channelName: 'Конфа 24',
             category: false,

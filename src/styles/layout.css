@@ -33,8 +33,8 @@
     display: grid;
     place-items: center;
     border-radius: 9px;
-    color: #20334f;
-    background: var(--accent);
+    color: #ffffff;
+    background: #3b5998;
     font-family: Georgia, serif;
     font-size: 35px;
     font-style: italic;

@@ -10,6 +10,16 @@ export const tones = options({
 
 export const identityFields: FieldDefinition[] = [
     { path: 'broadcast.mark', label: 'Эмблема «К» слева', type: 'toggle' },
+    {
+        path: 'broadcast.markVariant',
+        label: 'Вариант эмблемы «К»',
+        type: 'select',
+        options: options({
+            auto: 'Автоматически по фону',
+            light: 'Чёрная «К» на белом',
+            dark: 'Белая «К» на чёрном',
+        }),
+    },
     { path: 'broadcast.channel', label: 'Логотип канала справа', type: 'toggle' },
     { path: 'broadcast.channelName', label: 'Название канала' },
     {
